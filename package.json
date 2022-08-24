@@ -1,0 +1,27 @@
+{
+  "name": "18-associated_networking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MLyjak1/18-Associated_Networking.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MLyjak1/18-Associated_Networking/issues"
+  },
+  "homepage": "https://github.com/MLyjak1/18-Associated_Networking#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
+  }
+}
