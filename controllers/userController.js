@@ -11,7 +11,7 @@ module.exports = {
       .select('-__v')
       .then((user) =>
         !user
-          ? res.status(404).json({ message: 'No user with that ID' })
+          ? res.status(404).json({ message: 'No user with this ID' })
           : res.json(user)
       )
       .catch((err) => res.status(500).json(err));
@@ -34,7 +34,7 @@ deleteUser(req, res){
     User.findOneandDelete({ _id: req.params.userId})
     .then((user) =>
     !user
-          ? res.status(404).json({ message: 'No user with that ID' })
+          ? res.status(404).json({ message: 'No user with this ID' })
           : Post.deleteMany({ _id: { $in: user.post } })
       )
       .then(() => res.json({ message: 'User and posts removed' }))
@@ -52,7 +52,7 @@ addFriend(req, res){
         !user
           ? res
               .status(404)
-              .json({ message: 'No user with that ID' })
+              .json({ message: 'No user with this ID' })
           : res.json(user)
       )
       .catch((err) => res.status(500).json(err));
@@ -66,7 +66,7 @@ addFriend(req, res){
     )
       .then((user) =>
         !user
-          ? res.status(404).json({ message: 'No user with that ID' })
+          ? res.status(404).json({ message: 'No user with this ID' })
           : res.json(user)
       )
       .catch((err) => res.status(500).json(err));
