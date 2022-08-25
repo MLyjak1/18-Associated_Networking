@@ -1,4 +1,4 @@
-const {User, Post} = require('../models');
+const {Post, User} = require('../models');
 
 module.exports = {
   getPosts(req, res) {
@@ -9,7 +9,7 @@ module.exports = {
   getSinglePost(req, res) {
     Post.findOne({ _id: req.params.postId }) // from the routes
       .select('-__v')
-      .then(() =>
+      .then((post) =>
         !post
           ? res.status(404).json({ message: 'No post with this ID' })
           : res.json(post)
@@ -23,7 +23,7 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   updatePost(req, res) {
-    Post.findOneandUpdate({ _id: req.params.postId }, {$set: req.body}, { runValidators: true, new: true})
+    Post.findOneandUpdate({ _id: req.params.postId }, {$set: req.body.postText}, { runValidators: true, new: true})
     .then((post) => !post
     ? res.status(404).json({message: ' No post with this ID'})
     :res.json(post))
@@ -35,9 +35,7 @@ deletePost(req, res){
     .then((post) =>
     !post
           ? res.status(404).json({ message: 'No post with this ID' })
-          : Post.deleteMany({ _id: { $in: user.post } })
-      )
-      .then(() => res.json({ message: 'User and posts removed' }))
+          : res.json({ message: 'User and posts removed' }))
       .catch((err) => res.status(500).json(err));
   },
 };

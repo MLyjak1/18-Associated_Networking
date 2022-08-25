@@ -11,13 +11,12 @@ router.route('/:userId')
     .get(getSingleUser)
     .delete(deleteUser)
     .put(updateUser);
-// /api/users/:userId/friends
 
-router.route('/:userId/friends').post(addFriend);
+// /api/users/:userId/friends/:fiendId
 
-// /api/users/:userId/friends/:userId
-
-router.route('/:userId/friends/:userId').delete(removeFriend);
+router.route('/:userId/friends/:friendId')
+.post(addFriend)
+.delete(removeFriend);
 
 module.export = router;
 

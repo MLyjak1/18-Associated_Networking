@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const reactionSchema = require('./reaction');
+// const reactionSchema = require('./reaction');
 const postSchema = new Schema(
     {
         postText: {
@@ -16,9 +16,9 @@ const postSchema = new Schema(
             {
             type: String,
         },
-        reactions:[
-        reactionSchema    
-        ]
+        // reactions:[
+        // reactionSchema    
+        // ]
     },
     {
 
@@ -29,11 +29,11 @@ const postSchema = new Schema(
     }
 );
 
-postSchema
-    .virtual('reactionCount')
-    .get(function () {
-        return this.reactions.length;
-    });
+// postSchema
+//     .virtual('reactionCount')
+//     .get(function () {
+//         return this.reactions.length;
+//     });
 
 
 const Post = model('Post', postSchema);
